@@ -5,6 +5,7 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 const delBtn = document.getElementById("jsDelete");
+const submitBtn = document.getElementById("jsSubmit");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 600;
@@ -83,6 +84,7 @@ function handleSaveClick() {
 function handleDelClick(){
     ctx.clearRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
 }
+
 
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);

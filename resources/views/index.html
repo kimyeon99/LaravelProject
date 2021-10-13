@@ -10,6 +10,7 @@
   <body>
     <canvas id="jsCanvas" class="canvas"></canvas>
     <div class="controls">
+      <div class="controls_mini">
       <div class="controls__range">
         <input
           type="range"
@@ -19,11 +20,6 @@
           value="2.5"
           step="0.1"
         />
-      </div>
-      <div class="controls__btns">
-        <button id="jsMode">Fill</button>
-        <button id="jsSave">Save</button>
-        <button id="jsDelete">Delete</button>
       </div>
       <div class="controls__colors" id="jsColors">
         <div
@@ -63,11 +59,19 @@
           style="background-color:#5856D6"
         ></div>
       </div>
+      </div>
+
+      <div class="controls__btns">
+        <button id="jsMode">Fill</button>
+        <button id="jsSave">Save</button>
+        <button id="jsDelete">Delete</button>
+        <button id="jsSubmit" onclick="predict()">Submit</button>
+      </div>
     </div>
 
 
 
-    <div>Teachable Machine Image Model</div>
+    <!-- <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="predict()">예측</button>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -86,7 +90,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -158,7 +162,7 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
 
-        var image = document.getElementById("upload_image");
+        var image = document.getElementById("jsCanvas");
         const prediction = await model.predict(image, false);
 
          for (let i = 0; i < maxPredictions; i++) {
